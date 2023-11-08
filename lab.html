@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lab</title>
+    </head>
+    <body>
+        <header>
+          <h1>Thanh-Nha Tran</h1>
+          <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+              <li><a href="resume.html">Resume</a></li>
+              <li><strong>Lab</strong></li>
+              <li><a href="forFun.html">For Fun</a></li>
+            </ul>
+          </nav>
+        </header>
+    <section id="You">
+        <h2>Fill out this form</h2>
+        <form>
+            <fieldset>
+              <legend>Get to Know You!</legend>
+              <label>Select your coding expertise:</label>
+              <input type="radio" id="beginner" name="expertise" />
+              <label for="beginner">Beginner</label>
+              <input type="radio" id="intermediate" name="expertise" />
+              <label for="intermediate">Intermediate</label>
+              <input type="radio" id="advanced" name="expertise" />
+              <label for="advanced">Advanced</label>
+              <br />
+              <label for="language">Select your favorite programming language:</label>
+              <select id="language">
+                <optgroup label="Front-end">
+                  <option value="HTML">HTML</option>
+                  <option value="CSS">CSS</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="React">React</option>
+                  <option value="Angular">Angular</option>
+                  <option value="jQuery">jQuery</option>
+                </optgroup>
+                <optgroup label="Back-end">
+                  <option value="python">Python</option>
+                  <option value="java">Java</option>
+                  <option value="c">C</option>
+                  <option value="c++">C++</option>
+                  <option value="C#">C#</option>
+                  <option value="Rust">Rust</option>
+                  <option value="Haskell">Haskell</option>
+                </optgroup>
+              </select>
+              <br />
+              <label for="color">Select your favorite color:</label>
+              <datalist id="colors">
+                <option value="Red"></option>
+                <option value="Orange"></option>
+                <option value="Yellow"></option>
+                <option value="Green"></option>
+                <option value="Blue"></option>
+                <option value="Purple"></option>
+                <option value="White"></option>
+                <option value="Black"></option>
+              </datalist>
+              <input list="colors" id="color" />
+              <br />
+              <label for="sample-text-area">Add any comments:</label>
+              <textarea id="sample-text-area">Your comment here...</textarea>
+              <br />
+              <button type="submit">Save</button>
+            </fieldset>
+          </form>
+    </section>
+    <section id="svg">
+        <h2>Drawing a star</h2>
+        <svg width="300" height="200">
+            <polygon points="100,10 40,198 190,78 10,78 160,198"
+            style="fill:rgb(154, 76, 222);stroke:rgb(154, 76, 222);stroke-width:5;"/>
+          </svg>
+    </section>
+    <section id="canvas">
+        <h2>Drawing a circle</h2>
+        <canvas id="myCanvas" width="400" height="200" style="border:2px solid #7d3030;"></canvas> 
+        <script> 
+            let c = document.getElementById("myCanvas"); 
+            let c2 = c.getContext("2d"); 
+            c2.shadowBlur = 20; 
+            c2.shadowColor = "black"; 
+            c2.fillStyle = "purple"; 
+            c2.fillRect(30, 20, 100, 80); 
+    </script> 
+    </section>
+    <section>
+        <h2>Einstein's famous formula</h2>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+              <mn>E</mn>
+            <mo>=</mo>
+              <mn>m</mn>
+            <msup>
+              <mi>c</mi>
+              <mn>2</mn>
+            </msup>
+          </math>
+    </section>
+</body>
+</html>

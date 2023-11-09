@@ -21,7 +21,7 @@
     --dark-gray: #343A40;
     --snow: #FAF6F6;
 
-    color: var(--dark-gray);
+    color: var(--dark-gray, darkgray);
 
   }
 header {
@@ -35,13 +35,13 @@ header h1{
       margin: 0;
       font-size: 3rem;
       font-family: "title-font", "lucida handwriting", "Georgia", serif;
-      background-color: var(--champagne-pink);
+      background-color: var(--champagne-pink, pink);
 }
 header h2{
       padding: 0 0 1vw 0;
       margin: 0;
       font-family: "Georgia", serif;
-      background-color: var(--champagne-pink);
+      background-color: var(--champagne-pink, pink);
       font-size:1.5rem;
 }
 nav ul {
@@ -49,7 +49,7 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--ash-green);
+  background-color: var(--ash-green, lightgreen);
 }
 
 nav li {
@@ -65,7 +65,7 @@ nav li:has(a) {
 }
 
 nav li a:hover {
-    background-color: var(--slate-gray);
+    background-color: var(--slate-gray, darkgray);
 }
 h2 {
   font-family: "title-font", "lucida handwriting", "Georgia", serif;
@@ -95,7 +95,7 @@ padding: 1vw;
 .grid-container section {
 margin:5%;
 padding: 1vw;
-background-color: var(--isabelline);
+background-color: var(--isabelline, white);
 }
 
 /*Resize grid for phone and tablet display */

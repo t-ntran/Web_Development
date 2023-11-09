@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/lab.css">
     <title>Lab</title>
     </head>
     <body>
         <header>
           <h1>Thanh-Nha Tran</h1>
+          <h2>Computer Science Portfolio</h2>
           <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
+              <li><a href="index.html"><strong>Home</strong></a></li>
+              <li><a href="about.html">About Me</a></li>
               <li><a href="resume.html">Resume</a></li>
-              <li><strong>Lab</strong></li>
+              <li><a href="lab.html"><strong>Lab</strong></a></li>
               <li><a href="forFun.html">For Fun</a></li>
             </ul>
           </nav>
         </header>
-    <section id="You">
+    <main class="grid-container">
+    <section id="You" class="no-margin">
         <h2>Fill out this form</h2>
         <form>
             <fieldset>
@@ -70,7 +75,7 @@
             </fieldset>
           </form>
     </section>
-    <section id="svg">
+    <section id="svg" class="top-margin">
         <h2>Drawing a star</h2>
         <svg width="300" height="200">
             <polygon points="100,10 40,198 190,78 10,78 160,198"
@@ -89,7 +94,7 @@
             c2.fillRect(30, 20, 100, 80); 
     </script> 
     </section>
-    <section>
+    <section id="math" class="top-margin">
         <h2>Einstein's famous formula</h2>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
               <mn>E</mn>
@@ -101,5 +106,6 @@
             </msup>
           </math>
     </section>
+  </main>
 </body>
 </html>

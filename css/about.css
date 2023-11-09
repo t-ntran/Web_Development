@@ -1,0 +1,133 @@
+@font-face {
+    font-family: title-font;
+    src: url("../font/Parisienne-Regular.ttf");
+  }
+@font-face{
+    font-family: header-font;
+    src: url("../font/EduTASBeginner-VariableFont_wght.ttf");
+  }
+  :root { 
+    /*Color theme */
+    --space-cadet: #22223B; 
+    --ultra-violet: #4A4E69;
+    --rose-quartz: #9A8C98;
+    --pale-dogwoord: #C9ADA7;
+    --isabelline: #F2E9E4;
+    --champagne-pink: #F7E1D7;
+    --timberwolf: #DEDBD2;
+    --ash-green:#B0C4B1;
+    --outer-space:#4A5759;
+    --slate-gray: #ADB5BD;
+    --dark-gray: #343A40;
+    --snow: #FAF6F6;
+
+    color: var(--dark-gray)
+
+  }
+header {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+
+}
+header h1{
+      padding: 1vw 0 0 0;
+      margin: 0;
+      font-size: 3rem;
+      font-family: "title-font", "lucida handwriting", "Georgia", serif;
+      background-color: var(--champagne-pink);
+}
+header h2{
+      padding: 0 0 1vw 0;
+      margin: 0;
+      font-family: "Georgia", serif;
+      background-color: var(--champagne-pink);
+      font-size:1.5rem;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--ash-green);
+}
+
+nav li {
+  float: left;
+}
+
+nav li:has(a) {
+  display: block;
+  text-align: center;
+  padding: 1vw 1.5vw;
+  text-decoration: none; 
+
+}
+
+nav li a:hover {
+    background-color: var(--slate-gray);
+}
+h2 {
+  font-family: "title-font", "lucida handwriting", "Georgia", serif;
+  text-align: center;
+  font-size: 2.5rem;
+  font-stretch: expanded;
+}
+h3 {
+  text-align: center;
+  font-family: "header-font", "Georgia", serif
+}
+p {
+  text-align: left;
+}
+
+.intro {
+  background-color: lightgrey;
+  margin:0;
+  padding:0;
+}
+.grid-container {
+display: grid;
+grid-template-columns: auto auto;
+padding: 1vw;
+}
+
+.grid-container section {
+margin:5%;
+padding: 1vw;
+background-color: var(--isabelline);
+}
+
+/*Resize grid for phone and tablet display */
+@media screen and (max-width: 800px) {
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  padding: 1vw;
+}
+
+}
+
+.no-margin {
+margin:0;
+padding:0;
+}
+.top-margin {
+margin:0; 
+padding:1vw 0 0 0;
+}
+.bot-margin{
+padding:0 0 1vw 0;
+margin:0;
+}
+.bg-padding{
+padding: 1vw;
+}
+
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+height: auto;
+}

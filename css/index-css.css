@@ -56,7 +56,7 @@ nav li {
   float: left;
 }
 
-nav li a {
+nav li:has(a) {
   display: block;
   text-align: center;
   padding: 1vw 1.5vw;

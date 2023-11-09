@@ -114,12 +114,15 @@ background-color: var(--isabelline, white);
 
 /*Resize grid for phone and tablet display */
 @media screen and (max-width: 800px) {
-.grid-container-img {
-  display: grid;
-  grid-template-columns: auto;
-  padding: 1vw;
-}
-
+    .grid-container-img {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 1vw;
+    }
+    .transform {
+        width: 45%;
+        transform: rotate(80deg);
+    }
 }
 
 .no-margin {
@@ -146,7 +149,28 @@ width: 100%;
 height: auto;
 }
 
-div {
+.transform {
     width: 45%;
     transform: rotate(20deg);
   }
+
+.red {
+    text-align: center;
+    background-color: hsl(10, 56%, 64%);
+}
+.blue{
+    text-align: center;
+    background-color: hsl(201, 66%, 64%)
+}
+.purple {
+    text-align: center;
+    background-color: color-mix(
+        in hsl shorter hue,
+        hsl(10, 56%, 64%),
+        hsl(201, 66%, 64%)
+      );
+}
+.equal {
+    font-size: 3rem;
+    text-align: center;
+}

@@ -22,6 +22,7 @@
     --snow: #FAF6F6;
 
     color: var(--dark-gray);
+    background-color: var(--isabelline);
 
   }
 header {
@@ -73,61 +74,8 @@ h2 {
   font-size: 2.5rem;
   font-stretch: expanded;
 }
-h3 {
-  text-align: center;
-  font-family: "header-font", "Georgia", serif
-}
-p {
-  text-align: left;
-}
 
-.intro {
-  background-color: lightgrey;
-  margin:0;
-  padding:0;
-}
-.grid-container {
-display: grid;
-grid-template-columns: auto auto auto;
-padding: 1vw;
-}
+body{
+    height: 100vh;
+  }
 
-.grid-container section {
-margin:5%;
-padding: 1vw;
-background-color: var(--isabelline);
-}
-
-/*Resize grid for phone and tablet display */
-@media screen and (max-width: 800px) {
-.grid-container {
-  display: grid;
-  grid-template-columns: auto;
-  padding: 1vw;
-}
-
-}
-
-.no-margin {
-margin:0;
-padding:0;
-}
-.top-margin {
-margin:0; 
-padding:1vw 0 0 0;
-}
-.bot-margin{
-padding:0 0 1vw 0;
-margin:0;
-}
-.bg-padding{
-padding: 1vw;
-}
-
-.center {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 100%;
-height: auto;
-}

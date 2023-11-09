@@ -21,7 +21,7 @@
     --dark-gray: #343A40;
     --snow: #FAF6F6;
 
-    color: var(--dark-gray)
+    color: var(--dark-gray);
 
   }
 header {

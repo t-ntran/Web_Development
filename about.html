@@ -2,22 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-
-    <!-- Pragma Directives -->
-
-    <!-- <meta http-equiv="refresh" content="5" /> -->
-    <meta http-equiv="content-security-policy" content="default-src https:" />
-
-    <!-- Google SEO Meta Tags -->
-    <meta
-      name="Thanh-Nha Tran's Personal Profile"
-      content="resume"
-    />
-    <meta
-      name="google-site-verification"
-      content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34="
-    />
-    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/about.css">
     <title>About Me</title>
 </head>
     <body>
@@ -25,33 +11,41 @@
           <h1>Thanh-Nha Tran</h1>
           <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-              <li><strong>About Me</strong></li>
-              <li><a href="resume.html">Resume</a></li>
-              <li><a href="lab.html">Lab</a></li>
-              <li><a href="forFun.html">For Fun</a></li>
-            </ul>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html"><strong>About Me</strong></a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="lab.html">Lab</a></li>
+                    <li><a href="forFun.html">For Fun</a></li>
+                  </ul>
           </nav>
         </header>
-            <pre>
-                <code>
-                    public static void main (String args[]) {
-                        System.out.println("Hello World!");
-                    }
-                </code>
-            </pre>
-
-        <picture>
-            <source media="(min-width:650px)" srcset="headshot.jpg">
-            <source media="(min-width:465px)" srcset="headshot.jpg">
-            <img src="headshot.jpg" alt="headshot" width="200" height="250">
-        </picture>
-        <p>My name is Thanh-Nha (Tanya) Tran. I am a 4th year Computer Science major at UCSD. I am also minoring in Psychology.
-            I am interested in doing front-end development work. I enjoy doing research pertaining to HCI and AI.
-        </p>
+        <main class="grid-container">
+        <section id="headshot">
+            <picture>
+                <source media="(min-width:480px)" srcset="img/headshot.jpg" class=center>
+                <source media="(min-width:768px)" srcset="img/headshot.jpg">
+                <img src="img/headshot.jpg" alt="headshot" class=center>
+            </picture>
+        </section>
+        <section id="info">
+            <p>My name is Thanh-Nha (Tanya) Tran. I am a 4th year Computer Science major at UCSD. I am also minoring in Psychology.
+                I am interested in doing front-end development work. I enjoy doing research pertaining to human computing interation (HCT)
+                and artifical intelligence (AI).
+            </p>
+            <p>
+                After I graduate this year, I intent to continue one and pursue my master degree. I will continue to stay at UCSD. 
+                My emphasis will be on HCI.
+            </p>
+            <p>
+                I am currently working at HME as a Software Engineering Intern. I am helping to develop a dashbase in Metabase that will help
+                the Engineering team diagonsis issues. We hope to later push this dashbase to be product ready, so that customer will also
+                be able to see what is going on with their system.
+            </p>
+            <p>Connect with me by adding me on Linkedin <a herf="https://www.linkedin.com/in/thanh-nha-tran-571b6b231/">here</a>
+                 or email me at <a href="mailto:sdtntran@gmail.com">sdtntran@gmail.com</a>
+        </section>
         <br />
-        <template>
-            Hiding some information to be displayed when I can use a bit of JavaScript
-        </template>
+        </main>
 </body>
 </html>

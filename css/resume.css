@@ -62,16 +62,12 @@ nav li:has(a) {
     text-align: center;
     padding: 1vw 1.5vw;
     text-decoration: none; 
-    
+  
     &:hover {
       background-color: var(--slate-gray, darkgray);
     }
   
   }
-
-nav li a:hover {
-    background-color: var(--slate-gra, darkgray);
-}
 h2 {
   font-family: "title-font", "lucida handwriting", "Georgia", serif;
   text-align: center;

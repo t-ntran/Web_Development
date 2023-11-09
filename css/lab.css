@@ -56,17 +56,17 @@ nav li {
   float: left;
 }
 
-nav li a {
-  display: block;
-  text-align: center;
-  padding: 1vw 1.5vw;
-  text-decoration: none; 
-
-  &:hover {
-    background-color: var(--slate-gray, darkgray);
+nav li:has(a) {
+    display: block;
+    text-align: center;
+    padding: 1vw 1.5vw;
+    text-decoration: none; 
+  
+    &:hover {
+      background-color: var(--slate-gray, darkgray);
+    }
+  
   }
-
-}
 
 h2 {
   font-family: "title-font", "lucida handwriting", "Georgia", serif;

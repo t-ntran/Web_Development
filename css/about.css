@@ -104,12 +104,14 @@ p {
 display: grid;
 grid-template-columns: auto auto;
 padding: 1vw;
+grid-template-rows: 40%;
 }
 
 .grid-container section {
 margin:5%;
 padding: 1vw;
 background-color: var(--isabelline, white);
+height:fit-content
 }
 
 /*Resize grid for phone and tablet display */
@@ -119,7 +121,14 @@ background-color: var(--isabelline, white);
   grid-template-columns: auto;
   padding: 1vw;
 }
+}
 
+form form-field input{
+  width: 100%
+}
+
+form textarea {
+  width: 100%
 }
 
 .no-margin {
@@ -161,3 +170,12 @@ aside{
   font-size:small;
 }
 
+input:invalid:required {
+  border: 2px solid rgb(134, 35, 35);
+  background-color: var(--pale-dogwoord);
+}
+
+input:valid {
+  border: 2px solid var(--outer-space);
+  background-color: white;
+}

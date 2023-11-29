@@ -31,6 +31,7 @@
     color: var(--dark-gray, darkgray);
 
   }
+
 header {
       text-align: center;
       padding: 0;
@@ -178,4 +179,14 @@ input:invalid:required {
 input:valid {
   border: 2px solid var(--outer-space);
   background-color: white;
+}
+.illegal-char-message {
+  color: red;
+}
+
+.char-count.warn {
+  color: orange;
+}
+.char-count.error {
+  color: red;
 }

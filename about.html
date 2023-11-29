@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/about.css">
+    <script type="text/javascript" src="js/contactForm.js"></script>
+    <link rel="stylesheet" href="css/theme.css">
+    <script src="js/theme.js"></script>
     <title>About Me</title>
 </head>
     <body>
@@ -50,35 +53,38 @@
         <br>
         <section id="Connect" style="margin:0">
             <h2 style="margin:0">Connect with me!</h2>
-            <form action="https://httpbin.org/post" method="post">
+            <form action="https://httpbin.org/post" method="post" id="contactForm">
                 <form-field>
-                    <label for="name">Name:</label>
+                    <label for="formName">Name:</label>
                     <br>
-                    <input type="text" id="name" name="name" maxlength="25" required>
+                    <input type="text" id="formName" name="formName" maxlength="25" required>
                     <span class="error-message"></span>
                 </form-field>
                 <br>
                 <form-field>
                     <label for="email">Please Enter Your Email:</label>
                     <br>
-                    <input type="email" id="email"  name="email" maxlength="25" required>
+                    <input type="email" id="email" name="email" maxlength="25" required>
                     <span class="error-message"></span>
                 </form-field>
                 <br>
                 <form-field>
                     <label for="comment">Comments?</label>
                     <br>
-                    <input type="text" id="comment"  name="comment" maxlength="50" pattern="[A-Za-z0-9 !.?$%]+" required>
+                    <input type="text" id="comment"  name="comment" maxlength="50" pattern="[A-Za-z0-9 !.,?$%]+" required>
+                    <span class="illegal-char-message" id="commentIllegalCharMessage"></span>
+                    <br>
+                    <output id="errorMessage">Error message: </output>
+                    <output class="char-count" id="infoMessage">Info message: Characters remaining 50</output>
                 </form-field>
                 <br>
                 <input type="hidden" name="possible_bot" id="bot" value="true">
+                <input type="hidden" name="form_error" id="form_error">
                 <br>
                 <form-field>
-                    <button type="submit">Submit</button>
+                    <button type="submit" id="submit">Submit</button>
                 </form-field>
                 <br>
-                <output id="errorMessage">Error message: </output>
-                <output id="infoMessage">Info message: </output>
             </form>
         </section>
         </main>

@@ -50,3 +50,14 @@ body.dark-mode .intro {
 body.dark-mode .grid-container-main section{
     background-color: var(--dark-gray);
     }
+
+  .no-js-warning {
+    display: none;
+    color: red;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  body.no-js .no-js-warning {
+    display: block;
+  }

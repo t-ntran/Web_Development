@@ -44,7 +44,7 @@
                 this.attachShadow({ mode: 'open' });
 
                 this.shadowRoot.innerHTML = `
-                    <div><img class="weatherIcon" alt="Weather Icon" style="width:33%; height:30vh;"><img class="weatherIcon" alt="Weather Icon" style="width:33%; height:30vh;"><img class="weatherIcon" alt="Weather Icon" style="width:33%; height:30vh;"></div>
+                    <div id="weatherIcon" style="font-size:3em;">☀️</div>
                     <div id="weatherInfo">Loading...</div>
                 `;
             }
@@ -79,7 +79,7 @@
 
             updateWeather(weatherData) {
                 const weatherInfo = this.shadowRoot.getElementById('weatherInfo');
-                const weatherIcons = this.shadowRoot.querySelectorAll('.weatherIcon');
+                const weatherIcon = this.shadowRoot.getElementById('weatherIcon');
 
                 weatherInfo.innerHTML = `
                     <p> ${weatherData.shortForecast}</p> <br>
@@ -89,9 +89,26 @@
                     <p>Wind: ${weatherData.windSpeed} ${weatherData.windDirection}</p><br>
                 `;
 
-                weatherIcons.forEach((icon, index) => {
-                    icon.src = weatherData.icon; // Replace with the correct source from the API
-                });
+                const iconMapping = {
+                    'Fair/Clear': '☀️',
+                    'Sunny': '☀️',
+                    'Rain': '🌧️',
+                    'Snow': '❄️',
+                    'Mostly Sunny' : '☀️',
+                    'Partly Cloudy' : '&#9925;',
+                    'Foggy' : '&#9926;',
+                    'Overcast' : '&#9729;',
+                    'Mostly Cloudly' : '&#9729;',
+                    'Thunderstorm' : '🌧️',
+                    'Patchy Fog' : '&#9926;',
+                    'Mostly Cloudy' : '&#9729;',
+                    'default' : '☀️'
+                };
+
+                console.log(weatherData.shortForecast)
+                console.log(iconMapping[weatherData.shortForecast])
+                weatherIcon.innerHTML = iconMapping[weatherData.shortForecast] || iconMapping['default'];;
+
             }
 
             showOfflineMessage() {

@@ -17,7 +17,14 @@
     --bg-light: var(--snow);
     --text-light: var(--space-cadet);
     --bg-dark: var(--outer-space);
-    --text-dark: var(--timberwolf);
+    --text-dark: black;
+  
+    --blue-header:#778DA9;
+    --blue-background:#6f6f6f;
+    --blue-nav:#1B263B;
+    --blue-container:#a5a6a3;
+    --blue-section:#E0E1DD;
+    --blue-intro:#415A77
   }
   body {
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -29,27 +36,38 @@
 
   /* Dark mode styles */
   body.dark-mode {
-    background-color: rgb(27, 25, 25);
+    background-color: var(--blue-background);
     color: var(--text-dark);
 
     .grid-container section {
         margin:5%;
         padding: 1vw;
-        background-color: var(--dark-gray);
+        background-color: var(--blue-section);
         }
   }  
 
 body.dark-mode header h1, body.dark-mode header h2 {
-  background-color: var(--ultra-violet);
+  background-color: var(--blue-header);
+}
+
+body.dark-mode nav ul{
+  background-color: var(--blue-nav);
+    a {
+      color:white;
+    }
 }
 
 body.dark-mode .intro {
-    background-color: var(--med-gray); 
+    background-color: var(--blue-intro); 
 }
 
 body.dark-mode .grid-container-main section{
-    background-color: var(--dark-gray);
+    background-color: var(--blue-container);
     }
+
+body.dark--mode #ClassCourses, .grid-container {
+  background-color: var(--blue-container);
+}
 
   .no-js-warning {
     display: none;

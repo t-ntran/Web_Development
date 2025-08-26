@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Widget</title>
+
+    <style>
+        :root {
+            --star-not-selected: gray;
+            --star-selected: gold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Use the custom element &#9734;-->
+    <h1>Rating Widget</h1>
+    <rating-widget>
+        <form action="https://httpbin.org/post" method="POST" id="ratingForm">
+            <label for="rating">How satisfied are you?</label>
+            <input type="hidden" name="question" value="How satisfied are you?">
+            <input type="hidden" name="sentBy" value="HTML">
+            <input type="number" id="rating" name="rating" min="1" max="5" value="0" required>
+            <button type="submit">Submit</button>
+        </form>
+    </rating-widget>
+    <!-- Define the custom element -->
+    <script>
+        class RatingWidget extends HTMLElement {
+            constructor() {
+                super();
+
+                // Create a shadow DOM
+                this.attachShadow({ mode: 'open' });
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        .star {
+                            color: var(--star-not-selected, gray);
+                            cursor: pointer;
+                            font-size: 24px;
+                            margin: 0 2px;
+                        }
+                        #ratingContainer {
+                            display: none;
+                        }
+                    </style>
+                    <div id="ratingContainer">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+
+                    </div>
+                `;
+
+                this.stars = this.shadowRoot.querySelectorAll('.star');
+                this.ratingInput = document.getElementById('rating');
+                this.ratingForm = document.getElementById('ratingForm');
+                this.ratingContainer = this.shadowRoot.getElementById('ratingContainer');
+            }
+
+            connectedCallback() {
+                // Hide the star rating system initially
+                this.ratingContainer.style.display = 'none';
+
+                this.stars.forEach(star => {
+                    star.addEventListener('mouseover', () => this.highlightStars(star));
+                    star.addEventListener('mouseout', () => this.resetStars());
+                    star.addEventListener('click', () => this.setRating(star));
+                });
+
+                // Display the star rating system when JavaScript is enabled
+                this.ratingContainer.style.display = 'block';
+            }
+
+
+            highlightStars(selectedStar) {
+                const value = parseInt(selectedStar.getAttribute('data-value'));
+                this.stars.forEach(star => {
+                    star.style.color = star.getAttribute('data-value') <= value ? `var(--star-selected, gold)` : `var(--star-not-selected, gray)`;
+                });
+            }
+
+            resetStars() {
+                this.stars.forEach(star => {
+                    star.style.color = `var(--star-not-selected, gray)`;
+                });
+            }
+
+            setRating(selectedStar) {
+                const value = parseInt(selectedStar.getAttribute('data-value'));
+                this.ratingInput.value = value;
+
+                // Replace all stars with a specific string based on the condition
+                const replacementString = value >= 4 ? `Thanks for the ${value} rating!` : `Thanks for your feedback of ${value} stars. We'll try to do better!`;
+
+                // Create a new container and update its inner HTML
+                const newContainer = document.createElement('div');
+                newContainer.innerHTML = `<span>${replacementString}</span>`;
+                this.shadowRoot.replaceChild(newContainer, this.ratingContainer);
+
+                // Send the rating to the fake endpoint
+                this.submitRating();
+            }
+
+            submitRating() {
+                const formData = new FormData(this.ratingForm);
+
+                const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'X-Sent-By': 'JS', // Custom header for indicating JS
+                    },
+                    body: formData,
+                };
+
+                fetch('https://httpbin.org/post', requestOptions)
+                    .then(response => response.json())
+                    .then(data => console.log('Server Response:', data))
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+
+        customElements.define('rating-widget', RatingWidget);
+
+
+    </script>
+</body>
+</html>

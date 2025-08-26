@@ -1,0 +1,81 @@
+:root {
+    --space-cadet: #22223B; 
+    --ultra-violet: #4A4E69;
+    --rose-quartz: #9A8C98;
+    --pale-dogwoord: #C9ADA7;
+    --isabelline: #F2E9E4;
+    --champagne-pink: #F7E1D7;
+    --timberwolf: #DEDBD2;
+    --ash-green:#B0C4B1;
+    --outer-space:#4A5759;
+    --slate-gray: #ADB5BD;
+    --dark-gray: #343A40;
+    --med-gray: #565f67;
+    --snow: #FAF6F6;
+
+    color: var(--dark-gray, darkgray);
+    --bg-light: var(--snow);
+    --text-light: var(--space-cadet);
+    --bg-dark: var(--outer-space);
+    --text-dark: black;
+  
+    --blue-header:#778DA9;
+    --blue-background:#6f6f6f;
+    --blue-nav:#1B263B;
+    --blue-container:#a5a6a3;
+    --blue-section:#E0E1DD;
+    --blue-intro:#415A77
+  }
+  body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    margin: 0;
+    padding: 20px;
+  }
+
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: var(--blue-background);
+    color: var(--text-dark);
+
+    .grid-container section {
+        margin:5%;
+        padding: 1vw;
+        background-color: var(--blue-section);
+        }
+  }  
+
+body.dark-mode header h1, body.dark-mode header h2 {
+  background-color: var(--blue-header);
+}
+
+body.dark-mode nav ul{
+  background-color: var(--blue-nav);
+    a {
+      color:white;
+    }
+}
+
+body.dark-mode .intro {
+    background-color: var(--blue-intro); 
+}
+
+body.dark-mode .grid-container-main section{
+    background-color: var(--blue-container);
+    }
+
+body.dark--mode #ClassCourses, .grid-container {
+  background-color: var(--blue-container);
+}
+
+  .no-js-warning {
+    display: none;
+    color: red;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  body.no-js .no-js-warning {
+    display: block;
+  }

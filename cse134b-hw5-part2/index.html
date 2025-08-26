@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Widget</title>
+
+    <style>
+        :root {
+            --background-color: rgb(2, 154, 205); 
+            --text-color: white;
+
+            text-align: center;
+            background-color: var(--background-color, lightblue);
+            color: var(--text-color, white);
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        h1 {
+            font-size: 3em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h2 {
+            font-size: 2em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h3 {
+            font-size: 1em;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>&#9728;&#65039; Current Weather &#9729;</h1> 
+    <h2>La Jolla</h2>
+    <h3>Lat: 32.87083&#176;N Lon: 117.25083&#176;W Elev: 2490.ft </h3><hr>
+    <weather-widget>Current Weather Conditions Unavailable</weather-widget>
+
+    <script>
+        class WeatherWidget extends HTMLElement {
+            constructor() {
+                super();
+
+                this.attachShadow({ mode: 'open' });
+
+                this.shadowRoot.innerHTML = `
+                    <div id="weatherIcon" style="font-size:3em;">☀️</div>
+                    <div id="weatherInfo">Loading...</div>
+                `;
+            }
+
+            connectedCallback() {
+                if (navigator.onLine) {
+                    this.fetchWeather();
+                } else {
+                    this.showOfflineMessage();
+                }
+            }
+
+            fetchWeather() {
+                const apiUrl = `https://api.weather.gov/gridpoints/SGX/53,20/forecast?units=us`;
+
+                fetch(apiUrl, {
+                    headers: {
+                        'Accept': 'application/geo+json',
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        //this.shadowRoot.getElementById("weatherInfo").textContent += data.temperature;
+                        //this.shadowRoot.getElementById('weatherInfo').textContent = JSON.stringify(data, null, 2);
+                        console.log(data);
+                        console.log(data.properties.periods[0]);
+                        this.updateWeather(data.properties.periods[0]);
+                        this.shadowRoot.getElementById("weatherInfo").innerHTML += `<p> Last Update: ${data.properties.updateTime} </p>`;
+                    })
+                    .catch(error => console.error('Error fetching weather:', error));
+            }
+
+            updateWeather(weatherData) {
+                const weatherInfo = this.shadowRoot.getElementById('weatherInfo');
+                const weatherIcon = this.shadowRoot.getElementById('weatherIcon');
+
+                weatherInfo.innerHTML = `
+                    <p> ${weatherData.shortForecast}</p> <br>
+                    <p>Temperature: ${weatherData.temperature} &#176; ${weatherData.temperatureUnit}</p> <br>
+                    <p>Humidity: ${weatherData.relativeHumidity.value} %</p> <br>
+                    <p>Probability of Precipitation: ${weatherData.probabilityOfPrecipitation.value} %</p><br>
+                    <p>Wind: ${weatherData.windSpeed} ${weatherData.windDirection}</p><br>
+                `;
+
+                const iconMapping = {
+                    'Fair/Clear': '☀️',
+                    'Sunny': '☀️',
+                    'Rain': '🌧️',
+                    'Snow': '❄️',
+                    'Mostly Sunny' : '☀️',
+                    'Partly Cloudy' : '&#9925;',
+                    'Foggy' : '&#9926;',
+                    'Overcast' : '&#9729;',
+                    'Mostly Cloudly' : '&#9729;',
+                    'Thunderstorm' : '🌧️',
+                    'Patchy Fog' : '&#9926;',
+                    'Mostly Cloudy' : '&#9729;',
+                    'default' : '☀️'
+                };
+
+                console.log(weatherData.shortForecast)
+                console.log(iconMapping[weatherData.shortForecast])
+                weatherIcon.innerHTML = iconMapping[weatherData.shortForecast] || iconMapping['default'];;
+
+            }
+
+            showOfflineMessage() {
+                const weatherInfo = this.shadowRoot.getElementById('weatherInfo');
+                weatherInfo.textContent = 'Current Weather Conditions Unavailable';
+            }
+        }
+
+        customElements.define('weather-widget', WeatherWidget);
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Checking local weather page
+https://frabjous-belekoy-acb4b7.netlify.app/
+
+This uses the Weather Service API. It uses the latitude and longitude of La Jolla and the GET /points/{points} method. From there, I could use the X and Y coordinate of the location. From here, I could use the GET /gridpoints/{wfo}/{x},{y}/forecast method as my endpoint. `https://api.weather.gov/gridpoints/SGX/53,20/forecast?units=us`
+to fetch the necessary weather data.
